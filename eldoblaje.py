@@ -24,7 +24,7 @@ def obtener_y_extraer_datos(keyword, nombre_fichero, ruta_fichero):
     # Extraer títulos y URLs
     soup = BeautifulSoup(response.text, "html.parser")
     data = [
-        {"titulo": a_tag.text.strip(), "url": f"https://www.eldoblaje.com/{a_tag['href']}"}
+        {"titulo": a_tag.text.strip(), "url": f"https://www.eldoblaje.com/datos/{a_tag['href']}"}
         for td in soup.find_all("td", {"bgcolor": "#efefef"})
         if (a_tag := td.find("a", {"class": "bodyclass"}))
     ]
